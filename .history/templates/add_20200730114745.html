@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>Hi, {{ current_user.username}}!</h1>
+<div class="container-fluid">
+  <form action="" method="post">
+    {{ form.hidden_tag() }}
+    <div class="row">
+      <h3>Add Task</h3>
+      <div class="col">
+        {{ form.title(class="form-control") }}
+      </div>
+      <div class="col">
+        {{ form.submit(class="btn btn-primary") }}
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
