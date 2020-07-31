@@ -6,6 +6,7 @@ from config import Config
 from flask_mail import Mail
 from flask_moment import Moment
 from flask_migrate import Migrate
+from flask_bootstrap import Bootstrap
 
 
 # Create Flask app
@@ -16,6 +17,7 @@ mail = Mail(app)
 login= LoginManager(app)
 login.login_view = 'login'
 moment = Moment(app)
+bootstrap = Bootstrap(app)
 # app.config['SECRET_KEY'] = 'RyKu001!'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

@@ -6,7 +6,7 @@
     <div class="card">
       <div class="card-body">
         <h3>{{ task.title }}</h3>
-        <p>Added by <b>{{ task.user.username }}</b> on {{ task.date }}</p>
+        <p>Added by <b>{{ task.user.username }}</b> on {{ moment(task.date).format('LLL') }}</p>
         <a href="{{ url_for('edit', task_id=task.id) }}" class="btn btn-primary">Edit</a>
         <a href="{{ url_for('delete', task_id=task.id)}}" class="btn btn-danger">Delete</a>
       </div>
