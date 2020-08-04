@@ -57,8 +57,9 @@ def index():
     tasks = Task.query.all()
     return render_template('index.html', title='Tasks', tasks=tasks)
 
-@login_required
+
 @app.route('/mytasks/<username>',methods=['GET','POST'])
+@login_required
 def mytasks(username):
     user = User.query.filter_by(username=username).first_or_404()
     tasks = user.tasks.order_by(Task.date.desc())
@@ -69,12 +70,13 @@ def mytasks(username):
 def add(username):
     form = forms.AddTaskForm()
     if form.validate_on_submit():
-        t = Task(title=form.title.data, date=datetime.utcnow(), user=current_user)
+        t = Task(title=form.title.data, date=datetime.utcnow(), user=current_user, duedate=form.dt.data)
         db.session.add(t)
         db.session.commit()
         flash('Task added to the database')
         return redirect(url_for('index'))
     return render_template('add.html', form=form, title='Add Task')
+
 
 @app.route('/edit/<int:task_id>', methods=['GET', 'POST'])
 @login_required

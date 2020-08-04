@@ -6,8 +6,11 @@
     {{ form.hidden_tag() }}
     <div class="row">
       <h3>Add Task</h3>
+      <p>Task:</p>
       <div class="col">
         {{ form.title(class="form-control") }}
+      <p>Due Date:</p>
+        {{ form.dt(id="dtpick", class="form-control") }}
       </div>
       <div class="col">
         {{ form.submit(class="btn btn-primary") }}

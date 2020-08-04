@@ -3,6 +3,7 @@
 {% block styles %}
 {{super()}}
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 {% endblock %}
 {% block title %}
   {% if title %}
@@ -44,22 +45,31 @@
 
 {% block content %}
     <div class="container">
-      {% with messages = get_flashed_messages() %}
-        {% if messages %}
-          {% for message in messages %}
-          <div class="alert alert-info" role="alert">
-            {{ message }}
-          </div>
-          {% endfor %}
-        {% endif %}
-        {% endwith %}
+        <div id="tasks">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info" role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
 
-        {% block main %}
-        {% endblock %}
+            {% block main %}
+            {% endblock %}
+        </div>
     </div>
 {% endblock %}
 
 {% block scripts %}
     {{ super() }}
     {{ moment.include_moment() }}
+    <script>
+        $(function() {
+            $( "#dtpick" ).datepicker();
+        });
+    </script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 {% endblock %}

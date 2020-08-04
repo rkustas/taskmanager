@@ -1,7 +1,7 @@
 html, body {
 height: 100%;
 font-family: 'Courier New', Courier, monospace;
-color: white;
+color:black;
 padding-top: 3rem;
 }
 
@@ -31,13 +31,13 @@ padding-top: 3rem;
 
 body {
     background-image: url(login-background.png);
-    opacity: 60%;
+    opacity: 70%;
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
 }
 
-#submit, #username, #password {
+#submit, #username, #password, #email, #confirm {
     border-radius: 1rem;
     color: darkslateblue
 }
@@ -55,6 +55,16 @@ body {
 
 input.btn.btn-primary#submit {
     color: white;
+}
+
+#tasks {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.duedate h3 {
+    float: right;
 }
 
 
