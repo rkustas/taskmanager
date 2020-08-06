@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>Hi,{{ current_user.username.upper() }}!</h1>
+  {% for task in tasks %}
+    <div class="card">
+      <div class="card-body">
+        <div class="duedate">
+          {% if task.duedate|string() >= task.date|string() %}
+          <h4><b> Due Date: {{ moment(task.duedate).format('LL') }}</b></h4>
+          {% else %}
+          <h4><b><span style="color: red;">Past Due</span></b></h4>
+          {% endif %}
+          <h2>{{ task.title }}</h2>
+          <p>Added by <b>{{ task.user.username }}</b> on {{ moment(task.date).format('LLL') }}</p>
+          <a href="{{ url_for('main.edit', task_id=task.id) }}" class="btn btn-primary">Edit</a>
+          <a href="{{ url_for('main.delete', task_id=task.id)}}" class="btn btn-danger">Delete</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}

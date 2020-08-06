@@ -1,0 +1,72 @@
+html, body {
+height: 100%;
+font-family: 'Courier New', Courier, monospace;
+color:black;
+padding-top: 3rem;
+}
+
+.navbar {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    width: 100%;
+
+}
+
+.Parent {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding: 5rem;
+    border-radius: 2rem;
+}
+
+.grandParent{
+    display: table;
+    height: 100%;
+    margin: 0 auto;
+}
+
+body {
+    background-image: url(login-background.png);
+    opacity: 70%;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.btn {
+    border-radius: 1rem;
+    color: white;
+    margin-top: 1rem;
+}
+
+
+.card-body {
+    border: solid .25rem;
+    padding: 2rem;
+}
+
+.card {
+    width: 95%;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+
+input.btn.btn-primary#submit {
+    color: white;
+}
+
+#tasks {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.duedate h4 {
+    float: right;
+}
+
+
+
+

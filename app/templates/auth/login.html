@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="grandParent">
+    <div class="Parent">
+    <h2>Sign In</h2>
+    <form action ="" method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}<br>
+            {% for error in form.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <p><a href="{{ url_for('auth.reset_password_request' )}}">Forgot Your Password?</a></p>
+        <p><a href="{{ url_for('auth.registration') }}">Create New Account</a></p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    </div>
+</div>
+{% endblock %}
