@@ -1,1 +1,1 @@
-web: gunicorn app:taskmanager
+web: gunicorn taskmanager:app
