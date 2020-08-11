@@ -1,1 +1,1 @@
-web: gunicorn taskmanager:app
+web: flask db upgrade; gunicorn taskmanager:app

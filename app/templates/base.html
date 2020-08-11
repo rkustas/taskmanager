@@ -102,7 +102,7 @@
         $(function() {
             setInterval(function() {
                 $.ajax('{{ url_for('main.pastdue') }}')
-            }, 60000);
+            }, 14400000);
         });
     </script>
 {% endblock %}
