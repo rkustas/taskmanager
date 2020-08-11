@@ -74,6 +74,7 @@ def edit(task_id):
         if form.validate_on_submit():
             task.title = form.title.data
             task.date = datetime.utcnow()
+            task.duedate = form.dt.data
             db.session.commit()
             flash('Task has been updated')
             return redirect(url_for('main.index'))
@@ -106,8 +107,8 @@ def add(username):
         t = Task(title=form.title.data, date=datetime.utcnow(), user=current_user, duedate=form.dt.data)
         db.session.add(t)
         db.session.commit()
-        # for user in users:
-        #     task_update(user)
+        for user in users:
+            task_update(user)
         flash('Task added to the database')
         return redirect(url_for('main.index'))
     return render_template('add.html', form=form, title='Add Task', users=users)
