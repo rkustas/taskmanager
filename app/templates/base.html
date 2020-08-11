@@ -99,5 +99,10 @@
             $('#new_task_count').text(n);
             $('#new_task_count').css('visibility', n ? 'visible' : 'hidden');
         }
+        $(function() {
+            setInterval(function() {
+                $.ajax('{{ url_for('main.pastdue') }}')
+            }, 60000);
+        });
     </script>
 {% endblock %}

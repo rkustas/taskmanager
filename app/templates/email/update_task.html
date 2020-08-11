@@ -1,0 +1,11 @@
+<p>Dear {{ user.username }},</p>
+<p>
+    New tasks have been posted
+    <a href="{{ url_for('auth.login', _external=True) }}">
+        here
+    </a>.
+</p>
+<p>Alternatively, you can paste the following link in your browser's address bar:</p>
+<p>{{ url_for('auth.login', _external=True) }}</p>
+<p>Sincerely,</p>
+<p>Task Manager</p>

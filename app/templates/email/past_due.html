@@ -1,0 +1,14 @@
+<p>Dear {{ task.user.username }},</p>
+<p>
+    {% set past_due = task.user.past_due(task.user.username) %}
+    {% if past_due %}
+    You have {{ past_due }} tasks that are overdue!!!
+    {% endif %}
+    <a href="{{ url_for('auth.login',_external=True) }}">
+        click here
+    </a>.
+</p>
+<p>Alternatively, you can paste the following link in your browser's address bar:</p>
+<p>{{ url_for('auth.login', _external=True) }}</p>
+<p>Sincerely,</p>
+<p>Task Manager</p>

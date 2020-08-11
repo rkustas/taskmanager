@@ -1,0 +1,9 @@
+Dear {{ task.user.username }},
+
+Click below to see your overdue tasks!
+
+{{ url_for('auth.login', token=token , _external=True) }}
+
+Sincerely,
+
+Task Manager

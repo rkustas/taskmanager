@@ -1,0 +1,9 @@
+Dear {{ user.username }},
+
+Click below to view new tasks that have been posted:
+
+{{ url_for('auth.login', _external=True) }}
+
+Sincerely,
+
+Task Manager
