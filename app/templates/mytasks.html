@@ -3,19 +3,19 @@
 {% block main %}
 <h1>Hi,{{ user.username.upper() }}!</h1>
 {% if user.last_seen %}
-<p>Last seen on: {{ moment(user.last_seen).format('LLL') }}</p>
+<p>Last seen on: {{ moment(user.last_seen).format('LLLL') }}</p>
 {% endif %}
   {% for task in tasks %}
     <div class="card">
       <div class="card-body">
         <div class="duedate">
-          {% if task.duedate|string() >= task.date|string() %}
-          <h4><b> Due Date: {{ moment(task.duedate).format('LL') }}</b></h4>
+          {% if task.duedate|string() > datetimeconversion("US/Mountain",task.date)|string() %}
+          <h4><b> Due Date: {{ task.duedate.strftime("%A, %B %d, %Y %I:%M %p") }}</b></h4>
           {% else %}
           <h4><b><span style="color: red;">Past Due</span></b></h4>
           {% endif %}
           <h2>{{ task.title }}</h2>
-          <p>Added on {{ moment(task.date).format('LLL') }}</p>
+          <p>Added on {{ moment(task.date).format('LLLL') }}</p>
           <p>{{moment(task.date).fromNow()}}</p>
           <a href="{{ url_for('main.edit', task_id=task.id) }}" class="btn btn-primary">Edit</a>
           <a href="{{ url_for('main.delete', task_id=task.id)}}" class="btn btn-danger">Delete</a>

@@ -7,6 +7,7 @@ from time import time
 import jwt
 from app.search import add_to_index, remove_from_index, query_index
 
+
 class SearchableMixin(object):
     @classmethod
     def search(cls, expression, page, per_page):

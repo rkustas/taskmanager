@@ -8,6 +8,7 @@ from app.models import User, Task
 from app.main import bp
 from flask import g
 from app.emailpy import task_update, pastdue_email
+import pytz, dateutil.parser
 
 
 
@@ -134,3 +135,12 @@ def pastdue():
             'title': p.title,
             'email': p.user.email
         } for p in pastduetasks])
+
+@bp.context_processor
+def dateformatter():
+    def datetimeconversion(timezone,date):
+        local_timezone = pytz.timezone(timezone)
+        d = date.replace(tzinfo=pytz.utc)
+        local_datetime = d.astimezone(local_timezone)
+        return local_datetime
+    return dict(datetimeconversion=datetimeconversion)

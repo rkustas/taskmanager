@@ -1,13 +1,13 @@
 from flask import request
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, TextAreaField, DateField
+from wtforms import StringField, SubmitField, TextAreaField, DateTimeField
 from wtforms.validators import ValidationError, DataRequired, Length
 from app.models import User
 
 
 class AddTaskForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
-    dt = DateField('Due Date', validators=[DataRequired()],format="%m/%d/%Y")
+    dt = DateTimeField('Due Date', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 class DeleteTaskForm(FlaskForm):
